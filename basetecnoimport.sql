@@ -171,9 +171,9 @@ create table login(
     tipo varchar(30)
 );
 
-insert into login values (0909090909,'xxx123','Gerente');
-insert into login values (0909090901,'xxx1234','Administrador');
-insert into login values (0909090900,'xxx12345','Jefe de Bodega');
+insert into login values (909090909,'xxx123','Gerente');
+insert into login values (909090901,'xxx1234','Administrador');
+insert into login values (909090900,'xxx12345','Jefe de Bodega');
 insert into login values (1234567890,'12345','Vendedor');
 
 insert into matriz(nombre,idMatriz,telefono,direccion) values ("Matriz Norte",1,"2576287","Av. Americas"),
