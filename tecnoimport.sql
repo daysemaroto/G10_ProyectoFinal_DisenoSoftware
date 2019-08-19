@@ -171,6 +171,14 @@ create table inventario(
     foreign key (idArticulo) references articulo(idArticulo)
 );
 
+create table login(
+	idUsuario int,
+    clave varchar(30),
+    tipo varchar(30)
+);
 
-
+insert into login values (0909090909,'xxx123','Gerente');
+insert into login values (0909090901,'xxx123','Administrador');
+insert into login values (0909090900,'xxx123','Jefe de Bodega');
+insert into login values (1234567890,'12345','Vendedor');
 
