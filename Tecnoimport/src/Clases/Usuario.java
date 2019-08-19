@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package Clases;
 
-import Conexion.Conectar;
+import Singleton.Conectar;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.CallableStatement;

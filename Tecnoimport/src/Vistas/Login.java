@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import Conexion.Conectar;
+import Singleton.Conectar;
 import java.sql.Connection;
 
 /**
@@ -31,6 +31,7 @@ public class Login extends javax.swing.JFrame {
         tipo.removeItem("Item 2");
         tipo.removeItem("Item 3");
         tipo.removeItem("Item 4");
+        con = new Conectar();
     }
 
     /**
@@ -201,8 +202,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistroButtonActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-        con = new Conectar();
-        Connection reg = con.getConnection();
+        con.getConnection();
 
         String SQL_SELECT = "SELECT * FROM login where idUsuario=" + txtuser.getText();
         String SQL_SELECT2 = "SELECT * FROM login where clave=";
