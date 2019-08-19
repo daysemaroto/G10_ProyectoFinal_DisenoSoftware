@@ -39,11 +39,9 @@ public class ConexionADB {
 
     private static Connection getConexion() {
         try {//192.168.43.159
-            String URL = "jdbc:mysql://localhost:3306/db_diseñosoftware?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-            String USERNAME = "root";
-            String serial = "root"; 
-            Class.forName("com.mysql.jdbc.Driver");
-            conexion = (Connection) DriverManager.getConnection(URL, USERNAME, serial);
+            Class.forName("com.mysql.cj.jdbc.Driver");  
+
+            conexion = DriverManager.getConnection("jdbc:mysql://192.168.99.100:3306/tecnoimport","luis","luis2020");
             LOGGER.log(Level.INFO, "Conexion exitosa");
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex.getMessage());
