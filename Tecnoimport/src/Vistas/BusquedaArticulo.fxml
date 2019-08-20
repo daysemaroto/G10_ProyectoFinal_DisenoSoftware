@@ -8,25 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="669.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controladores.BusquedaArticuloController">
+<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.BusquedaArticuloController">
     <children>
-        <Label layoutX="210.0" layoutY="6.0" prefHeight="43.0" prefWidth="482.0" text="Búsqueda de Artículo" textAlignment="CENTER" textFill="#3372bd">
+        <Label layoutX="192.0" layoutY="14.0" prefHeight="43.0" prefWidth="239.0" text="Búsqueda de Artículo" textAlignment="CENTER" textFill="#3372bd">
             <font>
             <Font size="25.0" />
             </font>
         </Label>
-        <Label layoutX="159.0" layoutY="27.0" prefHeight="52.0" prefWidth="461.0" text="Ingrese nombre, descripción o categoría " textAlignment="CENTER" textFill="#3372bd">
+        <Label layoutX="39.0" layoutY="60.0" prefHeight="26.0" prefWidth="461.0" text="Ingrese búsqueda " textAlignment="CENTER" textFill="#3372bd">
             <font>
             <Font size="18.0" />
             </font>
         </Label>
-         <TextField fx:id="txtNombre" layoutX="112.0" layoutY="79.0" prefHeight="26.0" prefWidth="371.0" promptText="Ingrese nombre del artículo" />
-      <Button layoutX="517.0" layoutY="195.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="115.0" text="Buscar" />
-      <Button layoutX="517.0" layoutY="280.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="115.0" text="Regresar" />
-      <TableView layoutX="110.0" layoutY="131.0" prefHeight="210.0" prefWidth="386.0">
+         <TextField fx:id="txtNombre" layoutX="39.0" layoutY="87.0" prefHeight="26.0" prefWidth="469.0" promptText="Ingrese nombre del artículo" />
+      <Button layoutX="540.0" layoutY="138.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="92.0" text="Buscar" />
+      <Button layoutX="547.0" layoutY="213.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="92.0" text="Regresar" />
+      <TableView layoutX="39.0" layoutY="138.0" prefHeight="281.0" prefWidth="469.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C3" />
+            <TableColumn prefWidth="75.0" text="C4" />
+            <TableColumn prefWidth="75.0" text="C5" />
+            <TableColumn prefWidth="75.0" text="C6" />
         </columns>
       </TableView>
     
