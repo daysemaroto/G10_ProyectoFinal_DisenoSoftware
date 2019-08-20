@@ -7,22 +7,27 @@ package Controladores;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import Modelos.Patron_Singleton.ConexionADB;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -34,6 +39,8 @@ public class IniciarSesionController implements Initializable {
     private TextField txtUser,txtPass;
     @FXML
     private Label lbldbstatus;
+    @FXML
+    private Button btnLogin;
     
     static Connection conn = ConexionADB.getConexion_DB();
 
@@ -58,7 +65,7 @@ public class IniciarSesionController implements Initializable {
 
                 ResultSet  rs = ps.executeQuery();
 
-                //probar 909090909 xxx123
+                //probar 909090909   xxx123
 
                 //cambiar de ventana aqui
                 if(rs.next())
@@ -77,6 +84,20 @@ public class IniciarSesionController implements Initializable {
                                 System.out.println("Jefe de Bodega");
                                 break;
                         }
+                        
+                        
+                        txtPass.setText("");
+                        txtUser.setText("");
+                        Stage stage = new Stage();
+                        Parent root = FXMLLoader.load(getClass().getResource("/Vistas/Principal.fxml"));
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                        
+                        stage.setOnHidden((WindowEvent event) -> {
+                            ((Stage)btnLogin.getScene().getWindow()).show();
+                        });
+                        
+                        ((Stage)btnLogin.getScene().getWindow()).close();
                 }
                 else{
                     Alert alert = new Alert(AlertType.ERROR);
@@ -88,6 +109,8 @@ public class IniciarSesionController implements Initializable {
                     }
 
             } catch (SQLException ex) {
+                Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
                 Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{
