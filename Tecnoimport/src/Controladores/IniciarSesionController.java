@@ -42,13 +42,13 @@ public class IniciarSesionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if (conn!=null) {lbldbstatus.setText(lbldbstatus.getText()+" Conectada");lbldbstatus.setStyle("-fx-text-fill: green;");
-        }else{lbldbstatus.setText(lbldbstatus.getText()+" Offline");lbldbstatus.setStyle("-fx-text-fill: red;");}
+        if (conn!=null) {lbldbstatus.setText(lbldbstatus.getText()+" Conectada");lbldbstatus.setStyle("-fx-text-fill: green;-fx-text-size: 10dp;");
+        }else{lbldbstatus.setText(lbldbstatus.getText()+" Offline");lbldbstatus.setStyle("-fx-text-fill: red;-fx-text-size: 15dp");}
     }  
     
     @FXML
     private void iniciarSesion(){
-        if(!txtPass.getText().isEmpty() && !txtUser.getText().isEmpty()){
+        if(!txtPass.getText().isEmpty() && !txtUser.getText().isEmpty() && isNumeric(txtUser.getText())){
             try {
 
                 String query = "select * from login where idUsuario =? and clave =?";
@@ -104,5 +104,14 @@ public class IniciarSesionController implements Initializable {
     private void cancelar(){
         System.exit(0);
     }
+    
+    public static boolean isNumeric(String strNum) {
+    try {
+        int d = Integer.parseInt(strNum);
+    } catch (java.lang.NumberFormatException | NullPointerException nfe) {
+        return false;
+    }
+    return true;
+}
     
 }
