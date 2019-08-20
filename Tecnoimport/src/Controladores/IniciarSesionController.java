@@ -58,32 +58,32 @@ public class IniciarSesionController implements Initializable {
         if(!txtPass.getText().isEmpty() && !txtUser.getText().isEmpty() && isNumeric(txtUser.getText())){
             try {
 
-                String query = "select * from login where idUsuario =? and clave =?";
-                PreparedStatement ps = conn.prepareStatement(query);
-                ps.setInt(1, Integer.parseInt(txtUser.getText()));
-                ps.setString(2, txtPass.getText());
-
-                ResultSet  rs = ps.executeQuery();
-
-                //probar 909090909   xxx123
-
-                //cambiar de ventana aqui
-                if(rs.next())
-                {
-                        switch(rs.getString(3)){
-                            case "Gerente":
-                                System.out.println("Gerente");
-                                break;
-                            case "Administrador":
-                                System.out.println("Administrador");
-                                break;
-                            case "Vendedor":
-                                System.out.println("Vendedor");
-                                break;
-                            case "Jefe de Bodega":
-                                System.out.println("Jefe de Bodega");
-                                break;
-                        }
+//                String query = "select * from login where idUsuario =? and clave =?";
+//                PreparedStatement ps = conn.prepareStatement(query);
+//                ps.setInt(1, Integer.parseInt(txtUser.getText()));
+//                ps.setString(2, txtPass.getText());
+//
+//                ResultSet  rs = ps.executeQuery();
+//
+//                //probar 909090909   xxx123
+//
+//                //cambiar de ventana aqui
+//                if(rs.next())
+//                {
+//                        switch(rs.getString(3)){
+//                            case "Gerente":
+//                                System.out.println("Gerente");
+//                                break;
+//                            case "Administrador":
+//                                System.out.println("Administrador");
+//                                break;
+//                            case "Vendedor":
+//                                System.out.println("Vendedor");
+//                                break;
+//                            case "Jefe de Bodega":
+//                                System.out.println("Jefe de Bodega");
+//                                break;
+//                        }
                         
                         
                         txtPass.setText("");
@@ -99,18 +99,19 @@ public class IniciarSesionController implements Initializable {
                         
                         ((Stage)btnLogin.getScene().getWindow()).close();
                 }
-                else{
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Usuario y/ocontraseña no validos !");
-                    alert.setContentText("Ooops, no se encontro el usuario!");
+//                else{
+//                    Alert alert = new Alert(AlertType.ERROR);
+//                    alert.setTitle("Error");
+//                    alert.setHeaderText("Usuario y/ocontraseña no validos !");
+//                    alert.setContentText("Ooops, no se encontro el usuario!");
+//
+//                    alert.showAndWait();  
+//                    }
 
-                    alert.showAndWait();  
-                    }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
+//            } catch (SQLException ex) {
+//                Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
+//            } 
+            catch (IOException ex) {
                 Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{

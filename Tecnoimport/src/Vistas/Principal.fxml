@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="Controladores.PrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.PrincipalController">
    <children>
       <BorderPane fx:id="bpane" layoutX="150.0" layoutY="62.0" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -37,15 +36,15 @@
                         <MenuItem fx:id="mi12" mnemonicParsing="false" text="Busqueda de articulos" />
                         <Menu fx:id="crd" mnemonicParsing="false" text="CRUD">
                           <items>
-                              <MenuItem fx:id="mi13" mnemonicParsing="false" onAction="#clic" text="Clientes" />
-                            <MenuItem fx:id="mi14" mnemonicParsing="false" onAction="#clic" text="Usuarios" />
-                              <MenuItem fx:id="mi15" mnemonicParsing="false" onAction="#clic" text="Locales" />
-                              <MenuItem fx:id="mi16" mnemonicParsing="false" onAction="#clic" text="Empleados" />
-                              <MenuItem fx:id="mi17" mnemonicParsing="false" onAction="#clic" text="Articulos" />
-                              <MenuItem fx:id="mi18" mnemonicParsing="false" onAction="#clic" text="Comprobantes" />
-                              <MenuItem fx:id="mi19" mnemonicParsing="false" onAction="#clic" text="Formas de pago" />
-                              <MenuItem fx:id="mi20" mnemonicParsing="false" onAction="#clic" text="Ventas" />
-                              <MenuItem fx:id="mi21" mnemonicParsing="false" onAction="#clic" text="Inventario" />
+                              <MenuItem fx:id="mi13" mnemonicParsing="false" onAction="#clicmi13" text="Clientes" />
+                            <MenuItem fx:id="mi14" mnemonicParsing="false" text="Usuarios" />
+                              <MenuItem fx:id="mi15" mnemonicParsing="false" text="Locales" />
+                              <MenuItem fx:id="mi16" mnemonicParsing="false" text="Empleados" />
+                              <MenuItem fx:id="mi17" mnemonicParsing="false" text="Articulos" />
+                              <MenuItem fx:id="mi18" mnemonicParsing="false" text="Comprobantes" />
+                              <MenuItem fx:id="mi19" mnemonicParsing="false" text="Formas de pago" />
+                              <MenuItem fx:id="mi20" mnemonicParsing="false" text="Ventas" />
+                              <MenuItem fx:id="mi21" mnemonicParsing="false" text="Inventario" />
                           </items>
                         </Menu>
                     </items>

@@ -5,6 +5,7 @@
  */
 package Controladores;
 
+import Modelos.Venta;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -17,11 +18,12 @@ import javafx.scene.control.TableView;
  *
  * @author jhon_
  */
-public class CRUDController implements Initializable {
+public class CRUDVentaController implements Initializable {
+
     @FXML
-    private TableView table;
+    public TableView<Venta> table;
     @FXML
-    private TableColumn tc1,tc2,tc3,tc4,tc5,tc6,tc7;
+    public TableColumn tc1,tc2,tc3,tc4,tc5,tc6,tc7;
 
     /**
      * Initializes the controller class.
@@ -29,6 +31,6 @@ public class CRUDController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }        
     
 }
