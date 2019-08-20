@@ -49,8 +49,8 @@ public class IniciarSesionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if (conn!=null) {lbldbstatus.setText(lbldbstatus.getText()+" Conectada");lbldbstatus.setStyle("-fx-text-fill: green;-fx-text-size: 10dp;");
-        }else{lbldbstatus.setText(lbldbstatus.getText()+" Offline");lbldbstatus.setStyle("-fx-text-fill: red;-fx-text-size: 15dp");}
+        if (conn!=null) {lbldbstatus.setText(lbldbstatus.getText()+" Conectada");lbldbstatus.setStyle("-fx-text-fill: green;-fx-font-size: 12px;");
+        }else{lbldbstatus.setText(lbldbstatus.getText()+" Offline");lbldbstatus.setStyle("-fx-text-fill: red;-fx-font-size: 15px;");}
     }  
     
     @FXML

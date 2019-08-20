@@ -9,50 +9,50 @@
 
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="Controladores.PrincipalController">
    <children>
-      <BorderPane layoutX="150.0" layoutY="62.0" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="bpane" layoutX="150.0" layoutY="62.0" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <MenuBar BorderPane.alignment="CENTER">
               <menus>
-                <Menu mnemonicParsing="false" text="Jefe Bodega">
+                <Menu fx:id="mjb" mnemonicParsing="false" text="Jefe Bodega">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Crear Rutas Entrega" />
-                        <MenuItem mnemonicParsing="false" text="Asignar Ruta Entrega" />
-                        <MenuItem mnemonicParsing="false" text="Mostrar Rutas" />
-                        <MenuItem mnemonicParsing="false" text="Registrar Novedades" />
-                        <MenuItem mnemonicParsing="false" text="Busqueda de articulos" />
+                    <MenuItem fx:id="mi1" mnemonicParsing="false" text="Crear Rutas Entrega" />
+                        <MenuItem fx:id="mi2" mnemonicParsing="false" text="Asignar Ruta Entrega" />
+                        <MenuItem fx:id="mi3" mnemonicParsing="false" text="Mostrar Rutas" />
+                        <MenuItem fx:id="mi4" mnemonicParsing="false" text="Registrar Novedades" />
+                        <MenuItem fx:id="mi5" mnemonicParsing="false" text="Busqueda de articulos" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Vendedor">
+                <Menu fx:id="mvd" mnemonicParsing="false" text="Vendedor">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Clientes" />
-                        <MenuItem mnemonicParsing="false" text="Cotizaciones" />
-                        <MenuItem mnemonicParsing="false" text="Ventas" />
-                        <MenuItem mnemonicParsing="false" text="Consultar Entregas a domicilio" />
-                        <MenuItem mnemonicParsing="false" text="Ingresar Nota de Credito" />
-                        <MenuItem mnemonicParsing="false" text="Busqueda de articulos" />
+                    <MenuItem fx:id="mi6" mnemonicParsing="false" text="Clientes" />
+                        <MenuItem fx:id="mi7" mnemonicParsing="false" text="Cotizaciones" />
+                        <MenuItem fx:id="mi8" mnemonicParsing="false" text="Ventas" />
+                        <MenuItem fx:id="mi9" mnemonicParsing="false" text="Consultar Entregas a domicilio" />
+                        <MenuItem fx:id="mi10" mnemonicParsing="false" text="Ingresar Nota de Credito" />
+                        <MenuItem fx:id="mi11" mnemonicParsing="false" text="Busqueda de articulos" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Gerente">
+                  <Menu fx:id="mgr" mnemonicParsing="false" text="Gerente">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Busqueda de articulos" />
-                        <Menu mnemonicParsing="false" text="CRUD">
+                        <MenuItem fx:id="mi12" mnemonicParsing="false" text="Busqueda de articulos" />
+                        <Menu fx:id="crd" mnemonicParsing="false" text="CRUD">
                           <items>
-                              <MenuItem mnemonicParsing="false" text="Clientes" />
-                            <MenuItem mnemonicParsing="false" text="Usuarios" />
-                              <MenuItem mnemonicParsing="false" text="Locales" />
-                              <MenuItem mnemonicParsing="false" text="Empleados" />
-                              <MenuItem mnemonicParsing="false" text="Articulos" />
-                              <MenuItem mnemonicParsing="false" text="Comprobantes" />
-                              <MenuItem mnemonicParsing="false" text="Formas de pago" />
-                              <MenuItem mnemonicParsing="false" text="Ventas" />
-                              <MenuItem mnemonicParsing="false" text="Inventario" />
+                              <MenuItem fx:id="mi13" mnemonicParsing="false" onAction="#clic" text="Clientes" />
+                            <MenuItem fx:id="mi14" mnemonicParsing="false" onAction="#clic" text="Usuarios" />
+                              <MenuItem fx:id="mi15" mnemonicParsing="false" onAction="#clic" text="Locales" />
+                              <MenuItem fx:id="mi16" mnemonicParsing="false" onAction="#clic" text="Empleados" />
+                              <MenuItem fx:id="mi17" mnemonicParsing="false" onAction="#clic" text="Articulos" />
+                              <MenuItem fx:id="mi18" mnemonicParsing="false" onAction="#clic" text="Comprobantes" />
+                              <MenuItem fx:id="mi19" mnemonicParsing="false" onAction="#clic" text="Formas de pago" />
+                              <MenuItem fx:id="mi20" mnemonicParsing="false" onAction="#clic" text="Ventas" />
+                              <MenuItem fx:id="mi21" mnemonicParsing="false" onAction="#clic" text="Inventario" />
                           </items>
                         </Menu>
                     </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Administrador">
+                  <Menu fx:id="mad" mnemonicParsing="false" text="Administrador">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Busqueda de articulos" />
+                        <MenuItem fx:id="mi22" mnemonicParsing="false" text="Busqueda de articulos" />
                     </items>
                   </Menu>
               </menus>
