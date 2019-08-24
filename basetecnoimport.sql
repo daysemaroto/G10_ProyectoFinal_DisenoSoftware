@@ -1,8 +1,10 @@
-create user 'luis'@'192.168.%.%' identified by 'luis2020';
+-- create user 'luis'@'192.168.%.%' identified by 'luis2020';
 grant all privileges on *.* to 'luis'@'192.168.%.%' with grant option;
 flush privileges;
 
-create table cliente(
+use tecnoimport; 
+
+create table if not exists cliente(
   nombre varchar(50),
   apellido varchar(50),
   idCliente varchar(10),
