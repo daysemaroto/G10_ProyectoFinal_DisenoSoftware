@@ -17,7 +17,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -58,20 +57,13 @@ public class IniciarSesionController implements Initializable {
     @FXML
     private void iniciarSesion() throws SQLException{
         if(!txtPass.getText().isEmpty() && !txtUser.getText().isEmpty() && isNumeric(txtUser.getText())){
-            PreparedStatement ps=null;
-            ResultSet  rs =null;
-            try {
-
-                String query = "select * from login where idUsuario =? and clave =?";
-                ps = conn.prepareStatement(query);
+            String query = "select * from login where idUsuario =? and clave =?";
+            try(PreparedStatement ps=conn.prepareStatement(query);) {
                 ps.setInt(1, Integer.parseInt(txtUser.getText()));
                 ps.setString(2, txtPass.getText());
-
-                rs = ps.executeQuery();
-
-                //probar 0909090909   xxx123
-
-                //cambiar de ventana aqui
+                
+                
+                try( ResultSet rs = ps.executeQuery()) {
                 if(rs.next())
                 {
                     
@@ -128,7 +120,12 @@ public class IniciarSesionController implements Initializable {
 
             } catch (SQLException | IOException ex) {
                 Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
-            }finally{ps.close();rs.close();}
+            }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }else{
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Informacion");

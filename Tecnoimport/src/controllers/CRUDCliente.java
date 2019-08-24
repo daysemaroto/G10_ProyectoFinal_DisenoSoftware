@@ -68,12 +68,12 @@ public class CRUDCliente implements Initializable {
         tc7.setCellValueFactory(new PropertyValueFactory<Cliente,String>("direccion"));
         
         
-        Connection conn = null;
-        ResultSet rs = null;
-        try { 
-            String query = "select * from cliente order by nombre;";
-            conn = ConexionADB.getConexion_DB();
-            rs = conn.createStatement().executeQuery(query);
+        Connection conn = ConexionADB.getConexion_DB();
+        String query = "select * from cliente order by nombre;";
+        
+        try (ResultSet rs = conn.createStatement().executeQuery(query)){ 
+            
+            
             while (rs.next()) {
                 Cliente c = new Cliente();
                 c.setNombre(rs.getString("nombre"));
@@ -88,11 +88,6 @@ public class CRUDCliente implements Initializable {
             }
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{try {
-            rs.close ();conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
         
         FilteredList<Cliente> filteredData = new FilteredList<>(data, p -> true);
@@ -106,7 +101,7 @@ public class CRUDCliente implements Initializable {
                 // Compare first name and last name of every person with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
                 
-                if (cliente.getNombre().toLowerCase().contains(lowerCaseFilter) || cliente.getApellido().toLowerCase().contains(lowerCaseFilter)) {
+                if (cliente.getNombre().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches first name.
                 }
                 return false; // Does not match.

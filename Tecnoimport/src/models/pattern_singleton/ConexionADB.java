@@ -40,8 +40,7 @@ public class ConexionADB {
     private static Connection getConexion() {
         String uname = "luis";
         String password = "luis2020";
-        
-        try {//192.168.43.159
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");  
 
             conexion = DriverManager.getConnection("jdbc:mysql://192.168.99.100:3306/tecnoimport?"+

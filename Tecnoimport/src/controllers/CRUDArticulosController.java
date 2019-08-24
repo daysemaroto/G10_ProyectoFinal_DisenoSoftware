@@ -64,11 +64,12 @@ public class CRUDArticulosController implements Initializable {
         tc4.setCellValueFactory(new PropertyValueFactory<Cliente,String>("descripcion"));
         tc5.setCellValueFactory(new PropertyValueFactory<Cliente,String>("precio"));
         tc6.setCellValueFactory(new PropertyValueFactory<Cliente,String>("tiempoMaximoEntrega"));
-        
-        try { 
-            String query = "select * from articulo order by idArticulo;";
-            Connection conn = ConexionADB.getConexion_DB();
-            ResultSet rs = conn.createStatement().executeQuery(query);
+        Connection conn = null;
+        String query = "select * from articulo order by idArticulo;";
+            conn = ConexionADB.getConexion_DB();
+        try(ResultSet rs = conn.createStatement().executeQuery(query)) { 
+            
+            
             while (rs.next()) {
                 Articulo a = new Articulo();
                 a.setIdArticulo(rs.getString("idArticulo"));
@@ -97,8 +98,6 @@ public class CRUDArticulosController implements Initializable {
                 
                 if (cliente.getNombre().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches first name.
-                } else if (cliente.getNombre().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches last name.
                 }
                 return false; // Does not match.
             });
