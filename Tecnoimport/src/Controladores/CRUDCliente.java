@@ -38,7 +38,7 @@ public class CRUDCliente implements Initializable {
     @FXML
     private TextField tfsearch;
     
-    private ObservableList<Cliente> data = FXCollections.observableArrayList();;
+    private ObservableList<Cliente> data = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
