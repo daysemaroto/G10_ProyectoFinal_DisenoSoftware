@@ -1,0 +1,167 @@
+----Antes de la instalacion
+1. desinstalar git
+2. desinstalar virtual box
+
+No se perderan las maquinas de virtual box
+
+--- Instalacion
+1. ejecutar el instalador de docker
+2. copiar el archivo "container.tar.gz" en la carpeta donde se instalo el docker
+3. copiar el archivo "basetecnoimport.sql" en la carpeta donde se instale el docker
+4. ejecutar el acceso directo que se creo en el escritorio "Docker Quickstart Terminal" o buscar la carpeta donde se instalo el docker y ejecutar el archivo start.sh
+
+
+
+
+------- WORBENCH
+5. en mysql workbench se tiene que crear el usuario con todos los permisos
+
+#crear usuario
+create user '[nombre de usuario]'@'[direccion ip]' identified by '[contrasena]';
+#dar privilegios
+grant all privileges on *.* to 'luis'@'192.168.%.%' with grant option;
+#cargar privilegios
+flush privileges;
+
+EJEMPLO:
+create user 'luis'@'192.168.%.%' identified by 'luis2020';
+grant all privileges on *.* to 'luis'@'192.168.%.%' with grant option;
+flush privileges;
+
+NOTA: solo se ejecuta una vez el codigo porque si se ejecuta sale error porque el usuario ya se ha creado
+Verificar el usuario creado con:
+
+#mostrar usuarios del mysql
+select * from mysql.user;
+
+
+
+
+-----COMANDOS EN LA CONSOLA DE DOCKER
+
+6. instala mysql en el docker
+
+docker pull mysql
+
+
+
+7. Se construye la imagen a partir del archivo dokerfile
+
+#build images
+
+# el punto al final es importante no borrar
+docker build -t [nombre de la imagen que desea] .
+
+EJEMPLO:
+docker build -t db .
+
+8. Verificar que se creo la imagen  con el comando: 
+
+docker images
+
+9. crear el contenedor
+
+docker run --name [nombre del contenedeor que desea] -p 3306:3306 [nombre de la imagen existente]
+
+EJEMPLO:
+docker run --name db_container -p 3306:3306 db
+
+
+10. ya puedes ejecutar la aplicacion en java
+
+NOTA: solo debe estar ejecutandose un contenedor y no 2 a la vez, es decir no tener ejecutado el contenedor de mysql y el contenedor bd_container
+
+
+------------------ otros comandos aparte
+
+#borrar contenedor por el nombre
+docker rm containername
+
+#ver las imagenes que hay en docker
+docker images
+
+#borrar una imagen
+docker image rm idimage
+
+# para correr el contenedor se usa:
+
+docker start [container id]
+
+EJEMPLO:
+docker start 348600870b9b
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------No hacer------------------------------------
+
+-----COMANDOS EN LA CONSOLA DE DOCKER
+
+1. Importar contenedor en Docker, se creara la imagen de la base de datos en docker
+zcat [archivo container] | docker import - [nombre de la base de datos]
+
+EJEMPLO:
+zcat container.tar.gz | docker import - db
+
+
+
+-----COMANDOS EN LA CONSOLA DE DOCKER
+3. instala mysql en el docker
+
+docker pull mysql
+
+4. creamos el contenedor
+
+docker run -i -t [nombre del repositorio o imagen]:[tag del repositorio] /bin/bash
+
+EJEMPLO:
+docker run -i -t db:latest /bin/bash
+
+mas info: https://www.muylinux.com/2016/04/19/tutorial-docker/
+
+5. se pondra en marcha el contenedor, escribimos "exit" para salir del contenedor
+
+6. se verificara que se creo el contenedor con:
+
+docker ps -a
+
+7. para correr el contenedor se usa:
+
+docker start [container id]
+
+EJEMPLO:
+docker start 348600870b9b
+
+
+------------NO HACER ----------
+
+8. se pondra a ejecutar el contenedor de mysql
+
+docker run --name [nombre del contenedor] -p 3306:3306 -e MYSQL_ROOT_PASSWORD=[contrasena del root] -d [nombre de la imagen]
+
+EJEMPLO:
+docker run --name mysql_container -p 3306:3306 -e MYSQL_ROOT_PASSWORD=ds1010 -d mysql
+
+9. verificamos que esta corriendo el contenedor de mysql:
+
+
+docker ps -a
+
+9. corremos el contenedor mysql
+
+docker start [container id]
+
+EJEMPLO:
+docker start 4c679e660753
+
+10. entramos dentro del contenedor mysql
+
+docker exec -it mysql_container /bin/bash
+
+11. escribimos el siguiente comando dentro del contenedor mysql:
+
+mysql -u[usuario] -p[password]
+
+
+
+------------------------------------------------------------------
