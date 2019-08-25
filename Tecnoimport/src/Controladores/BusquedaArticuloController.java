@@ -3,33 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package Controladores;
 
-import intefaces.Comprobante;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
- * @author jhon_
+ * @author Dayse Maroto
  */
-public class CRUDComprobanteController implements Initializable {
-
-    @FXML
-    public TableView<Comprobante> table;
-    @FXML
-    public TableColumn tc1;
-    @FXML
-    public TableColumn tc2;
-    @FXML
-    public TableColumn tc3;
-    @FXML
-    public TableColumn tc4;
+public class BusquedaArticuloController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -37,6 +22,6 @@ public class CRUDComprobanteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-    }       
+    }    
     
 }

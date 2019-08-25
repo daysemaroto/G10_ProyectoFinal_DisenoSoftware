@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package Controladores;
 
-import models.Inventario;
+import models.Venta;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,10 +18,10 @@ import javafx.scene.control.TableView;
  *
  * @author jhon_
  */
-public class CRUDInventarioController implements Initializable {
+public class CRUDVentaController implements Initializable {
 
     @FXML
-    public TableView<Inventario> table;
+    public TableView<Venta> table;
     @FXML
     public TableColumn tc1;
     @FXML
@@ -34,6 +34,8 @@ public class CRUDInventarioController implements Initializable {
     public TableColumn tc5;
     @FXML
     public TableColumn tc6;
+    @FXML
+    public TableColumn tc7;
 
     /**
      * Initializes the controller class.
@@ -41,6 +43,6 @@ public class CRUDInventarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-    }      
+    }        
     
 }

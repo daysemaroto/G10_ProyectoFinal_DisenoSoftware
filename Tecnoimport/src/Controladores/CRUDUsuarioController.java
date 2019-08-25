@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package Controladores;
 
-import models.pattern_strategy.FormaPago;
+import models.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,14 +18,24 @@ import javafx.scene.control.TableView;
  *
  * @author jhon_
  */
-public class CRUDFormaPagoController implements Initializable {
+public class CRUDUsuarioController implements Initializable {
 
     @FXML
-    public TableView<FormaPago> table;
+    public TableView<Usuario> table;
     @FXML
     public TableColumn tc1;
     @FXML
     public TableColumn tc2;
+    @FXML
+    public TableColumn tc3;
+    @FXML
+    public TableColumn tc4;
+    @FXML
+    public TableColumn tc5;
+    @FXML
+    public TableColumn tc6;
+    @FXML
+    public TableColumn tc7;
 
     /**
      * Initializes the controller class.
@@ -33,6 +43,6 @@ public class CRUDFormaPagoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-    }       
+    }      
     
 }

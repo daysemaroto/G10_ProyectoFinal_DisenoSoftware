@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package Controladores;
 
 import models.pattern_singleton.ConexionADB;
 import models.Usuario;
@@ -171,7 +171,7 @@ public class updateUsersController extends Main implements Initializable {
 
     @FXML
     private void manejadorRegresar(MouseEvent event) {
-        wm.changeWindow("adminUsers.fxml", event);
+       // wm.changeWindow("adminUsers.fxml", event);
 
     }
 

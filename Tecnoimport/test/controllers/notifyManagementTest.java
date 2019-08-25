@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import Controladores.notifyManagement;
 import javafx.scene.control.Alert;
 import org.junit.After;
 import org.junit.AfterClass;

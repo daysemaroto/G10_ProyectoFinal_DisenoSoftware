@@ -3,26 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package Controladores;
 
-import models.Articulo;
 import models.Cliente;
-import models.pattern_singleton.ConexionADB;
 import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import models.pattern_singleton.ConexionADB;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -31,10 +30,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author jhon_
  */
-public class CRUDArticulosController implements Initializable {
-
+public class CRUDCliente implements Initializable {
     @FXML
-    public TableView<Articulo> table;
+    public TableView<Cliente> table;
     @FXML
     public TableColumn tc1;
     @FXML
@@ -48,44 +46,51 @@ public class CRUDArticulosController implements Initializable {
     @FXML
     public TableColumn tc6;
     @FXML
+    public TableColumn tc7;
+    @FXML
     private TextField tfsearch;
-
-    private ObservableList<Articulo> data = FXCollections.observableArrayList();
+    
+    private ObservableList<Cliente> data = FXCollections.observableArrayList();
+    
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb){
         table.setItems(null);
         
-        tc1.setCellValueFactory(new PropertyValueFactory<Cliente,String>("idArticulo"));
-        tc2.setCellValueFactory(new PropertyValueFactory<Cliente,String>("nombre"));
-        tc3.setCellValueFactory(new PropertyValueFactory<Cliente,String>("categoria"));
-        tc4.setCellValueFactory(new PropertyValueFactory<Cliente,String>("descripcion"));
-        tc5.setCellValueFactory(new PropertyValueFactory<Cliente,String>("precio"));
-        tc6.setCellValueFactory(new PropertyValueFactory<Cliente,String>("tiempoMaximoEntrega"));
-        Connection conn = null;
-        String query = "select * from articulo order by idArticulo;";
-            conn = ConexionADB.getConexion_DB();
-        try(ResultSet rs = conn.createStatement().executeQuery(query)) { 
+        tc1.setCellValueFactory(new PropertyValueFactory<Cliente,String>("nombre"));
+        tc2.setCellValueFactory(new PropertyValueFactory<Cliente,String>("apellido"));
+        tc3.setCellValueFactory(new PropertyValueFactory<Cliente,String>("idCliente"));
+        tc4.setCellValueFactory(new PropertyValueFactory<Cliente,String>("edad"));
+        tc5.setCellValueFactory(new PropertyValueFactory<Cliente,String>("telefono"));
+        tc6.setCellValueFactory(new PropertyValueFactory<Cliente,String>("email"));
+        tc7.setCellValueFactory(new PropertyValueFactory<Cliente,String>("direccion"));
+        
+        
+        Connection conn = ConexionADB.getConexion_DB();
+        String query = "select * from cliente order by nombre;";
+        
+        try (ResultSet rs = conn.createStatement().executeQuery(query)){ 
             
             
             while (rs.next()) {
-                Articulo a = new Articulo();
-                a.setIdArticulo(rs.getString("idArticulo"));
-                a.setNombre(rs.getString("nombre"));
-                a.setPrecio(rs.getString("precio"));
-                a.setCategoria(rs.getString("categoria"));
-                a.setDescripcion(rs.getString("descripcion"));
-                a.setTiempoMaximoEntrega(rs.getString("tiempoMaximoEntrega"));
-                data.add(a);
+                Cliente c = new Cliente();
+                c.setNombre(rs.getString("nombre"));
+                c.setApellido(rs.getString("apellido"));
+                c.setIdCliente(rs.getString("idCliente"));
+                c.setEdad(rs.getString("edad"));
+                c.setTelefono(rs.getString("telefono"));
+                c.setEmail(rs.getString("email"));
+                c.setDireccion(rs.getString("direccion"));
+                data.add(c);
                 
             }
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        FilteredList<Articulo> filteredData = new FilteredList<>(data, p -> true);
+        FilteredList<Cliente> filteredData = new FilteredList<>(data, p -> true);
         tfsearch.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(cliente -> {
                 // If filter text is empty, display all persons.
@@ -103,12 +108,10 @@ public class CRUDArticulosController implements Initializable {
             });
         });
         
-        SortedList<Articulo> sortedData = new SortedList<>(filteredData);
+        SortedList<Cliente> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(table.comparatorProperty());
         table.setItems(sortedData);
         
-    }  
-        
-          
+    }    
     
 }

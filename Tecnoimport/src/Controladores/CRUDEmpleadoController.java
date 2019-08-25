@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package Controladores;
 
-import models.Local;
+import models.pattern_factorymethod.Empleado;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,10 +18,10 @@ import javafx.scene.control.TableView;
  *
  * @author jhon_
  */
-public class CRUDLocalController implements Initializable {
+public class CRUDEmpleadoController implements Initializable {
 
     @FXML
-    public TableView<Local> table;
+    public TableView<Empleado> table;
     @FXML
     public TableColumn tc1;
     @FXML
@@ -30,12 +30,6 @@ public class CRUDLocalController implements Initializable {
     public TableColumn tc3;
     @FXML
     public TableColumn tc4;
-    @FXML
-    public TableColumn tc5;
-    @FXML
-    public TableColumn tc6;
-    @FXML
-    public TableColumn tc7;
 
     /**
      * Initializes the controller class.
@@ -43,6 +37,6 @@ public class CRUDLocalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-    }       
+    }      
     
 }

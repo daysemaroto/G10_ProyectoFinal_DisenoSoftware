@@ -5,7 +5,7 @@
  */
 package models;
 
-import controllers.updateUsersController;
+import Controladores.updateUsersController;
 import models.pattern_singleton.ConexionADB;
 import java.sql.CallableStatement;
 import java.sql.Connection;

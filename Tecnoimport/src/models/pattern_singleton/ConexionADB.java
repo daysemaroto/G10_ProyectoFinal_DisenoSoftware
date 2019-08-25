@@ -5,8 +5,8 @@
  */
 package models.pattern_singleton;
 
-import controllers.notifyManagement;
-import controllers.updateUsersController;
+import Controladores.notifyManagement;
+import Controladores.updateUsersController;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
