@@ -192,4 +192,49 @@ public class PrincipalController implements Initializable {
     }
     
     
+    
+    @FXML
+    private void clicmi5(){
+        try {
+            AnchorPane load =(AnchorPane) FXMLLoader.load(getClass().getResource("/Vistas/CRUDArticulos.fxml"));
+            bpane.setCenter(load);
+
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void clicmi11(){
+        try {
+            AnchorPane load =(AnchorPane) FXMLLoader.load(getClass().getResource("/Vistas/CRUDArticulos.fxml"));
+            bpane.setCenter(load);
+
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void clicmi12(){
+        try {
+            AnchorPane load =(AnchorPane) FXMLLoader.load(getClass().getResource("/Vistas/CRUDArticulos.fxml"));
+            bpane.setCenter(load);
+
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    @FXML
+    private void clicmi22(){
+        try {
+            AnchorPane load =(AnchorPane) FXMLLoader.load(getClass().getResource("/Vistas/CRUDArticulos.fxml"));
+            bpane.setCenter(load);
+
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

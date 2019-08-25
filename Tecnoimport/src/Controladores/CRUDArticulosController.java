@@ -74,9 +74,9 @@ public class CRUDArticulosController implements Initializable {
                 Articulo a = new Articulo();
                 a.setIdArticulo(rs.getString("idArticulo"));
                 a.setNombre(rs.getString("nombre"));
-                a.setPrecio(rs.getString("precio"));
                 a.setCategoria(rs.getString("categoria"));
                 a.setDescripcion(rs.getString("descripcion"));
+                a.setPrecio(rs.getString("precio"));      
                 a.setTiempoMaximoEntrega(rs.getString("tiempoMaximoEntrega"));
                 data.add(a);
                 
